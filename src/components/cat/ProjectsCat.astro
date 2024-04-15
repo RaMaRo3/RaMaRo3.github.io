@@ -1,0 +1,101 @@
+---
+import LinkButton from "./../LinkButton.astro"
+import GitHub from "../../icons/GitHub.astro";
+import Link from "../../icons/Link.astro"
+import CSharp from "../../icons/CSharp.astro"
+import Unity from "../../icons/Unity.astro"
+import Sql from "../../icons/Sql.astro";
+
+const TAGS = {
+  CSharp: {
+    name: "CSharp",
+    class: "bg-[#6F4ADC] text-white",
+    icon: CSharp,
+  },
+  Unity: {
+    name: "Unity",
+    class: "bg-black text-white",
+    icon: Unity,
+  },
+  SQL: {
+    name: "SQL Server",
+    class: "bg-black text-white",
+    icon: Sql,
+  },
+  Net: {
+    name: "C#.Net",
+    class: "bg-[#6F4ADC] text-white",
+    icon: CSharp,
+  }
+}
+
+const PROJECTS = [
+  {
+    title: "Echoes of Extinction",
+    description:
+      "Submergeix-te en una illa infestada de zombis, on has de trobar l'antídot per a salvar a la humanitat. Explora entorns perillosos, descobreix pistes i combat hordes de zombis en aquesta aventura de supervivència. Tens el necessari per a sobreviure i trobar la cura? Uneix-te a la batalla en Echoes of Extinction i descobreix-ho!",
+    link: "https://polichester.itch.io/echoes-of-extintion",
+    github: "https://github.com/IkelosVoidz/zombie-game-repos",
+    image: "/Echoes.jpg",
+    tags: [TAGS.Unity,TAGS.CSharp],
+  },
+  {
+    title: "Sistema de Vendes (en curs)",
+    description:"Recreació d'un simple sistema de vendes web on estic aprenent a utilitzar C# i .Net.",
+    github: "https://github.com/RaMaRo3/CSharp-.Net",
+    image: "/1.jpg",
+    tags: [TAGS.Net,TAGS.SQL],
+  }
+
+];
+---
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold opacity-90 text-blue-300">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-pretty">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-3">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Codi
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Vista prèvia
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
