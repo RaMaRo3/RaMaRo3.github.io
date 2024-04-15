@@ -93,24 +93,7 @@ import AboutMe from "../components/AboutMe.astro";
     </SectionContainer>
 
     <script>
-      const button = document.querySelectorAll("div.mail");
-      button.forEach((button) => {
-        button.addEventListener("click", () => {
-          const email = "ramonmartinezrodriguez03@gmail.com";
-          navigator.clipboard
-            .writeText(email)
-            .then(() => {
-              const copyMessage = button.nextElementSibling;
-              copyMessage.style.display = "inline";
-              setTimeout(() => {
-                copyMessage.style.display = "none";
-              }, 1000);
-            })
-            .catch((error) => {
-              console.error("Error copying: ", error);
-            });
-        });
-      });
+     
     </script>
   </main>
 </Layout>
