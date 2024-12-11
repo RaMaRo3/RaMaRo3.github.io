@@ -1,15 +1,23 @@
 ---
 import { date } from "astro/zod";
 import ExperienceItem from "../ExperienceItem.astro";
+import { defineScriptVars } from "astro/runtime/server/index.js";
 
 const EXPERIENCE = [
+{
+    date: "Junio – Septiembre 2024",
+    title: "Prácticas, Desarrollador de Software",
+    company: "iEduca (Infosoft Girona)",
+    description:"Durante mis prácticas, colaboré en el desarrollo y mejora de una plataforma de gestión educativa, optimizando funcionalidades existentes y resolviendo diversos problemas técnicos. Trabajé en la implementación de nuevas características, automatización de procesos y en la gestión de datos, aplicando principios de desarrollo limpio y estructurado para mejorar la calidad del código y la eficiencia general del sistema.",
+    
+  },
   {
     date: "Verano 2022-2023",
     title: "Cajero-Panadero",
     company: "Mercadona, España",
     description:
-      "En Mercadona, desarrollé habilidades como el trabajo en equipo, la atención al detalle y la resolución de problemas. Destaco mi capacidad para adaptarme rápidamente y brindar un excelente servicio al cliente. Aunque mi experiencia no está directamente relacionada con la programación, considero que estas habilidades son relevantes y me permiten contribuir de manera efectiva en roles de desarrollo de software/web.",
-  },
+      "Durante este período, adquirí habilidades clave como el trabajo en equipo, la atención al detalle y la resolución de problemas en entornos dinámicos. También desarrollé una capacidad destacada para adaptarme rápidamente y brindar una experiencia de alta calidad al cliente. Estas competencias, aunque provenientes de un ámbito diferente, son valiosas y aplicables al desarrollo de software, especialmente en términos de colaboración, pensamiento analítico y enfoque en la calidad.",
+  }
 ];
 ---
 <ol class="relative border-s border-gray-200 dark:border-gray-700">
